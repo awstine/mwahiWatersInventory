@@ -1,229 +1,456 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IronClad | Premium Roofing Systems</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Mwema Water & Health Initiative | MWAHI</title>
+    <meta name="description" content="Sustainable solutions for water and public health challenges in communities across Kenya">
+    <meta name="keywords" content="water, health, Kenya, NGO, WASH, community development">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>">
 </head>
-<body>
-
-    <header>
+<body class="font-sans text-gray-700 antialiased">
+    <!-- Header -->
+    <header class="site-header" id="site-header">
         <div class="container">
-            <nav>
-                <div class="logo">IRON<span>CLAD</span></div>
-                <ul class="nav-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#commitment">About Us</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="#footer" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Contact Us</a></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="ph-fill ph-drop text-accent"></i>
+                    MWAHI
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="#projects" class="nav-link">Our Projects</a>
+                    <a href="#work" class="nav-link">Our Work</a>
+                    <a href="#contact" class="cta-button">Partner With Us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="mobile-nav">
+                <div class="mobile-nav-content">
+                    <a href="#home" class="mobile-nav-link">Home</a>
+                    <a href="#about" class="mobile-nav-link">About Us</a>
+                    <a href="#projects" class="mobile-nav-link">Our Projects</a>
+                    <a href="#work" class="mobile-nav-link">Our Work</a>
+                    <a href="#contact" class="mobile-nav-cta">Partner With Us</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>PREMIUM IRON SHEETS <br> FOR EVERY BUILD</h1>
-                <p>Factory-direct roofing solutions engineered for durability. 15-year warranty on all pre-painted and galvanized sheets.</p>
-                <a href="#products" class="btn btn-primary">VIEW CATALOGUE</a>
-            </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?q=80&w=2072&auto=format&fit=crop" 
+                 alt="Clean Water Community" 
+                 class="hero-bg-image"
+                 loading="lazy">
+            <div class="water-droplets"></div>
         </div>
-    </section>
-
-    <section id="commitment">
-        <div class="container commitment-slider-wrapper">
-            
-            <div class="full-slide active">
-                <div class="slide-text">
-                    <h2>Our Commitment to Quality</h2>
-                    <p>We don't just sell metal; we sell peace of mind. Every sheet is manufactured to strict international standards (KEBS Certified).</p>
-                    <p>Whether for residential homes or industrial warehouses, our color stays vibrant and our steel remains rust-free.</p>
-                    <a href="#footer" class="btn" style="background: white; color: var(--color-dark);">GET A QUOTE</a>
-                </div>
-                <div class="slide-visual">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Team Inspection">
-                </div>
-            </div>
-
-            <div class="full-slide">
-                <div class="slide-text">
-                    <h2>Total Pricing Transparency</h2>
-                    <p>We hate hidden fees as much as you do. We quote by the exact meter, so you only pay for what covers your roof.</p>
-                    <p>No "approximate" measurements. No "wastage fees." Just honest pricing for honest work.</p>
-                    <a href="#products" class="btn" style="background: white; color: var(--color-dark);">SEE PRICES</a>
-                </div>
-                <div class="slide-visual">
-                    <div class="big-icon">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="full-slide">
-                <div class="slide-text">
-                    <h2>True Gauge Guarantee</h2>
-                    <p>Construction fraud is real. Unscrupulous sellers often label Gauge 32 as Gauge 30.</p>
-                    <p>We invite you to bring a micrometer to our warehouse. If we say it's Gauge 30, it IS Gauge 30. We stand by our thickness.</p>
-                    <a href="#footer" class="btn" style="background: white; color: var(--color-dark);">VISIT US</a>
-                </div>
-                <div class="slide-visual">
-                    <div class="big-icon">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="full-slide">
-                <div class="slide-text">
-                    <h2>Nationwide Delivery</h2>
-                    <p>Your location shouldn't limit your quality. We deliver from our Nairobi factory floor to your site in Kisumu, Mombasa, or Eldoret.</p>
-                    <p>Standard orders are processed and delivered within 48 hours.</p>
-                    <a href="#footer" class="btn" style="background: white; color: var(--color-dark);">CONTACT US</a>
-                </div>
-                <div class="slide-visual">
-                    <div class="big-icon">
-                        <i class="fas fa-truck-fast"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="commitment-dots">
-                <span class="c-dot active" onclick="setCommitmentSlide(1)"></span>
-                <span class="c-dot" onclick="setCommitmentSlide(2)"></span>
-                <span class="c-dot" onclick="setCommitmentSlide(3)"></span>
-                <span class="c-dot" onclick="setCommitmentSlide(4)"></span>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="products">
+        
         <div class="container">
-            <h2 class="section-title">Product Offerings</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/400x300/E0E0E0/333333?text=Galvanized+Box" alt="Galvanized Sheet">
-                    <div class="product-info">
-                        <h3>Galvanized Sheet</h3>
-                        <p>Classic silver finish. Rust-proof coating suited for all weather conditions. Available in Gauge 30 & 32.</p>
-                        <button class="btn btn-primary">View Specs</button>
+            <div class="hero-content">
+                <span class="badge">Mwema Water & Health Initiative</span>
+                <h1 class="hero-title">Sustainable Solutions for <span>Water & Public Health.</span></h1>
+                <p class="hero-subtitle">
+                    A dynamic organization dedicated to providing sustainable solutions to water and public health challenges in communities across Kenya.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">
+                        Explore Our Projects
+                        <i class="ph-fill ph-arrow-down"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        Contact Us
+                        <i class="ph-fill ph-envelope-simple"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <a href="#about" class="scroll-indicator" aria-label="Scroll to next section">
+            <i class="ph-fill ph-caret-down"></i>
+        </a>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Communities Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Water Points Established</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2011</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Lives Impacted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who We Are</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="mission-vision-grid">
+                <div class="mission-vision-card">
+                    <div class="card-icon">
+                        <i class="ph-fill ph-target text-primary"></i>
+                    </div>
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text">
+                        To deal with public health concern diseases while providing safe treated water.
+                    </p>
+                </div>
+                <div class="mission-vision-card">
+                    <div class="card-icon">
+                        <i class="ph-fill ph-eye text-accent"></i>
+                    </div>
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-text">
+                        Provision of water & public health solution to the community and be at the first line of defense of these services.
+                    </p>
+                </div>
+            </div>
+
+            <div class="values-section">
+                <h3 class="values-title">Our Core Values</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="ph-fill ph-shield-check text-primary"></i>
+                        <div class="value-name">Integrity</div>
+                    </div>
+                    <div class="value-card">
+                        <i class="ph-fill ph-lightbulb text-primary"></i>
+                        <div class="value-name">Innovation</div>
+                    </div>
+                    <div class="value-card">
+                        <i class="ph-fill ph-hand-fist text-primary"></i>
+                        <div class="value-name">Empowerment</div>
+                    </div>
+                    <div class="value-card">
+                        <i class="ph-fill ph-plant text-primary"></i>
+                        <div class="value-name">Sustainability</div>
+                    </div>
+                    <div class="value-card">
+                        <i class="ph-fill ph-users-three text-primary"></i>
+                        <div class="value-name">Collaboration</div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/400x300/7DA0CA/FFFFFF?text=Pre-Painted+Blue" alt="Pre-painted Sheet">
-                    <div class="product-info">
-                        <h3>Royal Blue (Gloss)</h3>
-                        <p>High-gloss finish that resists fading. The most popular choice for modern residential roofing.</p>
-                        <button class="btn btn-primary">View Specs</button>
+            </div>
+
+            <div class="registration-badge">
+                <i class="ph-fill ph-certificate text-accent"></i>
+                <span>Registered CBO: Certificate No. 47936 (2019)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">From Gunfilm Village to international partnerships, see our impactful work in action</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image project-1">
+                        <i class="ph-fill ph-house"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <i class="ph-fill ph-map-pin text-accent"></i>
+                            <span>Gunfilm Village</span>
+                        </div>
+                        <h3 class="project-title">Community Water Project</h3>
+                        <p class="project-description">Comprehensive water solution providing sustainable access to clean water for the entire Gunfilm community.</p>
+                        <div class="project-stats">
+                            <i class="ph-fill ph-users"></i>
+                            <span>500+ beneficiaries</span>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/400x300/8B0000/FFFFFF?text=Tile+Profile+Red" alt="Tile Profile">
-                    <div class="product-info">
-                        <h3>Tile Profile (Red)</h3>
-                        <p>The aesthetic look of clay tiles with the durability of steel. Matte finish available.</p>
-                        <button class="btn btn-primary">View Specs</button>
+
+                <div class="project-card">
+                    <div class="project-image project-2">
+                        <i class="ph-fill ph-gear"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <i class="ph-fill ph-calendar text-accent"></i>
+                            <span>Since 2011</span>
+                        </div>
+                        <h3 class="project-title">Borehole Rehabilitation</h3>
+                        <p class="project-description">Restoring boreholes to optimal function for reliable clean water access in multiple communities.</p>
+                        <div class="project-stats">
+                            <i class="ph-fill ph-drop"></i>
+                            <span>25+ boreholes restored</span>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/400x300/333333/FFFFFF?text=Charcoal+Grey" alt="Charcoal Sheet">
-                    <div class="product-info">
-                        <h3>Charcoal Grey</h3>
-                        <p>Premium matte finish for a sophisticated, executive look. 15-year fade warranty.</p>
-                        <button class="btn btn-primary">View Specs</button>
+
+                <div class="project-card">
+                    <div class="project-image project-3">
+                        <i class="ph-fill ph-globe-hemisphere-west"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <i class="ph-fill ph-flag text-accent"></i>
+                            <span>International</span>
+                        </div>
+                        <h3 class="project-title">China Partnership Program</h3>
+                        <p class="project-description">Established in July 2017, expanding our reach and resources for water and health initiatives.</p>
+                        <div class="project-stats">
+                            <i class="ph-fill ph-handshake"></i>
+                            <span>Global collaboration</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials">
+    <!-- Work Section -->
+    <section id="work" class="work-section">
         <div class="container">
-            <h2 class="section-title" style="color: var(--color-white);">Client Feedback</h2>
-            <div class="testimonial-slider">
-                
-                <div class="testimonial-slide active">
-                    <p class="testimonial-quote">"The gauge quality is exactly as advertised. Delivered to my site in Nakuru within 48 hours."</p>
-                    <p class="testimonial-author">- Simon K.</p>
-                    <p class="testimonial-role">Contractor</p>
-                </div>
-
-                <div class="testimonial-slide">
-                    <p class="testimonial-quote">"Best pricing for the Charcoal Grey matte finish. The house looks executive."</p>
-                    <p class="testimonial-author">- Joy Wanjiku</p>
-                    <p class="testimonial-role">Homeowner</p>
-                </div>
-
-                <div class="testimonial-slide">
-                    <p class="testimonial-quote">"Professional team. They calculated exactly how many meters I needed so there was zero waste."</p>
-                    <p class="testimonial-author">- David O.</p>
-                    <p class="testimonial-role">Developer</p>
-                </div>
-
-                <div class="testimonial-dots">
-                    <span class="dot active" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-
+            <div class="section-header">
+                <h2 class="section-title">Our Impact Areas</h2>
+                <div class="section-divider"></div>
             </div>
-        </div>
-    </section>
 
-
-
-    <footer id="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-about">
-                    <h3 style="font-size: 1.8rem;">IRON<span>CLAD</span></h3>
-                    <p>Building the nation, one roof at a time. Quality you can trust, prices you can afford.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <div class="work-grid">
+                <div class="work-card infrastructure-card">
+                    <div class="work-card-header">
+                        <div class="work-icon">
+                            <i class="ph-fill ph-faucet"></i>
+                        </div>
+                        <h3 class="work-card-title">Infrastructure (WASH)</h3>
                     </div>
-                </div>
-
-                <div class="footer-col footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#products">Catalogue</a></li>
-                        <li><a href="#">Distributors</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                    
+                    <ul class="work-list">
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-accent"></i>
+                            <div>
+                                <h4>Borehole Rehabilitation</h4>
+                                <p>Restoring boreholes to optimal functioning by cleaning, repairing, and replacing parts for reliable clean water.</p>
+                            </div>
+                        </li>
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-accent"></i>
+                            <div>
+                                <h4>Spring Protection</h4>
+                                <p>Safeguarding natural water sources by diverting surface runoff and constructing protective structures.</p>
+                            </div>
+                        </li>
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-accent"></i>
+                            <div>
+                                <h4>Pipeline Installation & Solarization</h4>
+                                <p>Construction of pipelines feeding into reservoirs via gravitational flow and solar-powered systems.</p>
+                            </div>
+                        </li>
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-accent"></i>
+                            <div>
+                                <h4>Communal Water Points</h4>
+                                <p>Constructed to reduce queuing time and the distance of water points to households.</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt" style="color: var(--color-mid-blue);"></i>
-                        <span>+254 700 123 456</span>
+                <div class="work-card community-card">
+                    <div class="work-card-header">
+                        <div class="work-icon">
+                            <i class="ph-fill ph-heart-beat"></i>
+                        </div>
+                        <h3 class="work-card-title">Community & Health</h3>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope" style="color: var(--color-mid-blue);"></i>
-                        <span>sales@ironclad.co.ke</span>
+                    
+                    <ul class="work-list">
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-secondary"></i>
+                            <div>
+                                <h4>Public Health</h4>
+                                <p>Protecting and promoting community health while eliminating neglected tropical diseases.</p>
+                            </div>
+                        </li>
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-secondary"></i>
+                            <div>
+                                <h4>School WASH</h4>
+                                <p>Improving learning environments with safe water, hygiene facilities, and wash clubs.</p>
+                            </div>
+                        </li>
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-secondary"></i>
+                            <div>
+                                <h4>Capacity Building</h4>
+                                <p>Collaborating with communities to improve their skills, abilities, and available resources.</p>
+                            </div>
+                        </li>
+                        <li class="work-item">
+                            <i class="ph-fill ph-check-circle text-secondary"></i>
+                            <div>
+                                <h4>VSLA (Village Savings & Loans)</h4>
+                                <p>Empowering the community to use collective power to overcome social and financial barriers.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="partners-header">
+                <h3 class="partners-title">Our Partners</h3>
+                <p class="partners-subtitle">Collaborating for greater impact across communities</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <i class="ph-fill ph-globe-hemisphere-east text-primary"></i>
+                    <span>International</span>
+                </div>
+                <div class="partner-card">
+                    <i class="ph-fill ph-buildings text-primary"></i>
+                    <span>Government</span>
+                </div>
+                <div class="partner-card">
+                    <i class="ph-fill ph-handshake text-primary"></i>
+                    <span>Community</span>
+                </div>
+                <div class="partner-card">
+                    <i class="ph-fill ph-users text-primary"></i>
+                    <span>NGOs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-logo">
+                        <i class="ph-fill ph-drop text-accent"></i> MWAHI
+                    </h4>
+                    <p class="footer-description">
+                        Dedicated to providing sustainable solutions to water and public health challenges.
+                    </p>
+                    <a href="mailto:info.mwahi@gmail.com" class="footer-cta">
+                        Contact Us
+                        <i class="ph-fill ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="footer-column">
+                    <h5 class="footer-heading">Get in Touch</h5>
+                    <ul class="footer-list">
+                        <li>
+                            <i class="ph-fill ph-phone text-accent"></i>
+                            <span>
+                                (+254) 724 133 254 <br>
+                                (+254) 707 180 560
+                            </span>
+                        </li>
+                        <li>
+                            <i class="ph-fill ph-envelope text-accent"></i>
+                            <a href="mailto:info.mwahi@gmail.com">info.mwahi@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="ph-fill ph-calendar text-accent"></i>
+                            <span>Established 2011</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5 class="footer-heading">Our Location</h5>
+                    <div class="footer-location">
+                        <i class="ph-fill ph-map-pin text-accent"></i>
+                        <address>
+                            Bungoma Town,<br>
+                            Muyayi Village<br>
+                            <span class="location-detail">Chebukuyi Ward, Sirisia Sub-County</span>
+                        </address>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt" style="color: var(--color-mid-blue);"></i>
-                        <span>Mombasa Road, Nairobi</span>
+                    <div class="footer-social">
+                        <h6>Follow Us</h6>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook">
+                                <i class="ph-fill ph-facebook-logo"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter">
+                                <i class="ph-fill ph-twitter-logo"></i>
+                            </a>
+                            <a href="#" aria-label="Instagram">
+                                <i class="ph-fill ph-instagram-logo"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="copyright">
-                &copy; 2024 IronClad Systems. All Rights Reserved.
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mwema Water & Health Initiative. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#" class="donation-link">Make a Donation</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="ph-fill ph-caret-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
