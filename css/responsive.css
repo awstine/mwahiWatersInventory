@@ -1,3 +1,11 @@
+/* Small-Medium Screen Styles (min-width: 500px) */
+@media (min-width: 500px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
 /* Tablet Styles (min-width: 768px) */
 @media (min-width: 768px) {
     /* Container */
@@ -6,6 +14,18 @@
     }
     
     /* Header */
+    .header-top-bar {
+        display: block;
+    }
+
+    .logo-image {
+        height: 70px;
+    }
+
+    .site-header.scrolled .logo-image {
+        height: 50px;
+    }
+
     .desktop-nav {
         display: flex;
         align-items: center;
@@ -101,6 +121,18 @@
         font-size: 3.75rem;
     }
     
+    .logo-image {
+        height: 90px;
+    }
+
+    .site-header.scrolled .logo-image {
+        height: 60px;
+    }
+
+    .desktop-nav {
+        gap: 2.5rem;
+    }
+
     .hero-subtitle {
         font-size: 1.25rem;
     }
@@ -175,13 +207,9 @@
         padding: 0 1rem;
     }
     
-    /* Header */
-    .logo {
-        font-size: 1.25rem;
-    }
-    
-    .logo i {
-        font-size: 1.75rem;
+    /* Header on small mobile */
+    .logo-sub-text {
+        display: none;
     }
     
     /* Hero */
@@ -246,8 +274,7 @@
     
     /* Partners */
     .partners-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1rem; /* Adjust gap for very small screens */
     }
     
     .partner-card {

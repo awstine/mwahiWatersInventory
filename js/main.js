@@ -1,194 +1,87 @@
-// DOM Elements
-const mobileMenuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const backToTopBtn = document.getElementById('back-to-top');
-const navLinks = document.querySelectorAll('a[href^="#"]');
-const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
-
-// Mobile Menu Toggle
-function toggleMobileMenu() {
-    mobileMenu.classList.toggle('active');
-    
-    // Update ARIA attributes
-    const isExpanded = mobileMenu.classList.contains('active');
-    mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isExpanded ? 'hidden' : '';
-}
-
-// Close mobile menu when clicking links
-function closeMobileMenu() {
-    mobileMenu.classList.remove('active');
-    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-}
-
-// Back to Top Button
-function handleScroll() {
-    // Show/hide back to top button
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Force page to top on refresh ---
+    // Prevents the browser from jumping to a #hash link on reload
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
     }
-    
-    // Update header styles on scroll
-    const header = document.querySelector('.site-header');
-    if (window.scrollY > 50) {
-        header.style.boxShadow = 'var(--shadow-md)';
-    } else {
-        header.style.boxShadow = 'var(--shadow-sm)';
-    }
-}
+    window.scrollTo(0, 0);
 
-// Smooth scroll to section
-function smoothScroll(e) {
-    e.preventDefault();
-    
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (!targetElement) return;
-    
-    const headerHeight = document.querySelector('.site-header').offsetHeight;
-    const targetPosition = targetElement.offsetTop - headerHeight;
-    
-    window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-    });
-    
-    // Close mobile menu if open
-    closeMobileMenu();
-}
+    // --- Element Selectors ---
+    const header = document.getElementById('site-header');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuBtn.querySelector('i');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
 
-// Scroll animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animations
-    const animatedElements = document.querySelectorAll(
-        '.mission-vision-card, .value-card, .project-card, .work-card, .partner-card'
-    );
-    
-    animatedElements.forEach(el => observer.observe(el));
-}
-
-// Lazy load images
-function initLazyLoading() {
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.add('loaded');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-}
-
-// Keyboard navigation
-function handleKeyboardNavigation(e) {
-    // Close mobile menu on Escape key
-    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-        closeMobileMenu();
-    }
-    
-    // Tab navigation trap for mobile menu
-    if (e.key === 'Tab' && mobileMenu.classList.contains('active')) {
-        const focusableElements = mobileMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-        
-        if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-                lastElement.focus();
-                e.preventDefault();
-            }
+    // --- Header Scroll & Back to Top Button ---
+    const handleScroll = () => {
+        // Add 'scrolled' class to header for dynamic styling
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
         } else {
-            if (document.activeElement === lastElement) {
-                firstElement.focus();
-                e.preventDefault();
-            }
+            header.classList.remove('scrolled');
         }
-    }
-}
 
-// Initialize all functionality
-function init() {
-    // Mobile menu
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-    
-    // Close mobile menu when clicking links
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
+        // Toggle visibility of the back-to-top button
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // --- Mobile Menu Toggle ---
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        // Toggle icon between list and x for better UX
+        if (mobileMenu.classList.contains('active')) {
+            menuIcon.classList.replace('ph-list', 'ph-x');
+        } else {
+            menuIcon.classList.replace('ph-x', 'ph-list');
+        }
     });
-    
-    // Back to top button
+
+    // --- Close mobile menu when a link is clicked ---
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuIcon.classList.replace('ph-x', 'ph-list');
+        });
+    });
+
+    // --- Back to Top Button Functionality ---
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    
-    // Smooth scrolling for navigation links
-    navLinks.forEach(link => {
-        link.addEventListener('click', smoothScroll);
+
+    // --- Scroll-triggered Animations ---
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px' // Triggers animation a bit before element is fully in view
     });
-    
-    // Scroll events
-    window.addEventListener('scroll', handleScroll);
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', handleKeyboardNavigation);
-    
-    // Initialize animations
-    initScrollAnimations();
-    
-    // Initialize lazy loading
-    initLazyLoading();
-    
-    // Set current year in footer (optional)
-    const yearElement = document.querySelector('#current-year');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-    
-    // Initial scroll check
-    handleScroll();
-}
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', init);
+    // Animate standalone elements
+    document.querySelectorAll('.section-header, .registration-badge, .partners-header').forEach(el => {
+        observer.observe(el);
+    });
 
-// Export for module usage (if needed)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        toggleMobileMenu,
-        closeMobileMenu,
-        handleScroll,
-        smoothScroll,
-        initScrollAnimations,
-        initLazyLoading,
-        handleKeyboardNavigation,
-        init
-    };
-}
+    // Animate grid items with a staggered delay
+    const grids = document.querySelectorAll('.stats-grid, .mission-vision-grid, .values-grid, .projects-grid, .work-grid, .partners-grid');
+    grids.forEach(grid => {
+        const gridItems = Array.from(grid.children);
+        gridItems.forEach((item, index) => {
+            item.style.setProperty('--stagger-index', index);
+            observer.observe(item);
+        });
+    });
+});
