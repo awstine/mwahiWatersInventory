@@ -880,7 +880,7 @@ a {
 }
 
 .footer-logo .logo-image {
-    height: 45px; /* Adjust height as needed for the footer */
+    height: 60px;
 }
 
 .footer-logo .logo-main-text {
@@ -888,11 +888,11 @@ a {
 }
 
 .footer-logo .logo-sub-text {
-    color: var(--color-gray-300);
+    color: var(--color-gray-200);
 }
 
 .footer-description {
-    color: var(--color-gray-400);
+    color: var(--color-gray-300);
     font-size: 0.875rem;
     line-height: 1.75;
     margin-bottom: 1.5rem;
@@ -919,6 +919,7 @@ a {
 .footer-heading {
     font-size: 1.125rem;
     font-weight: 700;
+    color: var(--color-accent);
     margin-bottom: 1.5rem;
 }
 
@@ -944,17 +945,17 @@ a {
 }
 
 .footer-list span {
-    color: var(--color-gray-300);
+    color: var(--color-white);
     line-height: 1.5;
 }
 
 .footer-list a {
-    color: var(--color-gray-300);
+    color: var(--color-white);
     transition: color var(--transition-default);
 }
 
 .footer-list a:hover {
-    color: var(--color-white);
+    color: var(--color-lightaccent);
 }
 
 .footer-location {
@@ -971,7 +972,7 @@ a {
 }
 
 .footer-location address {
-    color: var(--color-gray-300);
+    color: var(--color-white);
     font-style: normal;
     line-height: 1.5;
 }
@@ -979,7 +980,7 @@ a {
 .location-detail {
     display: block;
     font-size: 0.75rem;
-    color: var(--color-gray-500);
+    color: var(--color-lightaccent);
     margin-top: 0.5rem;
 }
 
