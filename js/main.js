@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
 
-    // ==========================
-    // ✅ HERO BACKGROUND SLIDER
-    // ==========================
+    
+    // HERO BACKGROUND SLIDER
+
     const slides = document.querySelectorAll('.hero-slide');
     if (slides.length > 0) {
         // Respect reduced motion
@@ -108,9 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================
     // 1. SCROLL PROGRESS BAR
-    // ==========================
     const progressBar = document.getElementById('scroll-progress');
     
     window.addEventListener('scroll', () => {
@@ -123,9 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==========================
-    // 3. 3D TILT HOVER EFFECT
-    // ==========================
+
+    // 3. 3D TILT HOVER EFFECTS
     const tiltCards = document.querySelectorAll('.project-card, .work-card, .mission-vision-card');
 
     tiltCards.forEach(card => {
@@ -154,9 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================
-    // ✅ CONTACT MODAL
-    // ==========================
+    // CONTACT MODAL
     const modal = document.getElementById('contact-modal');
     const openModalBtns = document.querySelectorAll('.open-modal-btn');
     const closeModalBtn = document.getElementById('close-modal-btn');
@@ -220,9 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    // ==========================
-// ✅ PARTNERS SECTION - Expandable Cards
-// ==========================
+
+// PARTNERS SECTION - Expandable Cards
+
 const partnerCards = document.querySelectorAll('.partner-card');
 
 partnerCards.forEach(card => {
