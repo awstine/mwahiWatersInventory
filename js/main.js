@@ -270,4 +270,105 @@ document.addEventListener('keydown', function(e) {
         });
     }
 });
+// --- SCROLL SPY (Highlight Active Link on Scroll) ---
+    const sectionElements = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        // Loop through sections to find which one is in view
+        sectionElements.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            // 150px offset creates a smoother transition before the section hits the very top
+            if (window.scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // Update the active class
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            // If the link href includes the current section ID, add active class
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+
+    // --- HORIZONTAL STACKING CARDS LOGIC ---
+
+const stackWrapper = document.querySelector('.projects-scroll-wrapper');
+const stackCards = document.querySelectorAll('.project-stack-card');
+
+if (stackWrapper && stackCards.length > 0) {
+    
+    // Initial setup: Push all cards (except the first) to the right
+    stackCards.forEach((card, index) => {
+        if (index > 0) {
+            card.style.transform = 'translateX(100%)';
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        const wrapperTop = stackWrapper.offsetTop;
+        const wrapperHeight = stackWrapper.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how far we've scrolled into the wrapper
+        // Start animating when the wrapper hits the top of the screen
+        const startPoint = wrapperTop;
+        const endPoint = wrapperTop + wrapperHeight - viewportHeight;
+        const scrollPosition = window.scrollY;
+
+        // If we are within the scroll area
+        if (scrollPosition >= startPoint && scrollPosition <= endPoint) {
+            
+            // Calculate progress (0 to 1)
+            const progress = (scrollPosition - startPoint) / (endPoint - startPoint);
+            
+            // We have 3 cards. Card 1 is static. 
+            // We need to animate Card 2 and Card 3.
+            // Total movable cards = total - 1
+            const totalMovable = stackCards.length - 1;
+            
+            // Map progress to specific cards
+            stackCards.forEach((card, index) => {
+                if (index === 0) return; // Skip first card (it stays put)
+
+                // Determine the "slot" for this card
+                // e.g., Card 2 moves during the first 50% of scroll
+                // e.g., Card 3 moves during the second 50% of scroll
+                const slotStart = (index - 1) / totalMovable;
+                const slotEnd = index / totalMovable;
+
+                if (progress > slotStart && progress < slotEnd) {
+                    // Normalize progress for this specific card (0 to 1)
+                    const cardProgress = (progress - slotStart) / (slotEnd - slotStart);
+                    // Move from 100% (right) to 0% (center)
+                    const translateVal = 100 - (cardProgress * 100);
+                    card.style.transform = `translateX(${translateVal}%)`;
+                } 
+                else if (progress >= slotEnd) {
+                    // Fully on screen
+                    card.style.transform = `translateX(0%)`;
+                } 
+                else if (progress <= slotStart) {
+                    // Fully off screen (right)
+                    card.style.transform = `translateX(100%)`;
+                }
+            });
+        } 
+        // Reset if scrolled back up past the start
+        else if (scrollPosition < startPoint) {
+             stackCards.forEach((card, index) => {
+                if (index > 0) card.style.transform = 'translateX(100%)';
+            });
+        }
+    });
+}
+
 });
